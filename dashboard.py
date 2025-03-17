@@ -11,6 +11,11 @@ def load_data():
     df["datetime"] = pd.to_datetime(df["datetime"])  # Convertir en format date
     return df
 
+df = pd.read_csv("prices.csv", names=["datetime", "price"])
+df["datetime"] = pd.to_datetime(df["datetime"])  # Convertir en format date
+
+print(df)  # Ajoute cette ligne pour voir les valeurs chargées
+
 # Initialiser l'application Dash
 app = dash.Dash(__name__)
 
