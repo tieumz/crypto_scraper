@@ -12,3 +12,6 @@ Le projet repose sur Bash pour le scraping, Python (Dash, Pandas, Plotly) pour l
 
 Objectif:
 L'objectif est d'automatiser la collecte et l'affichage des prix d'un actif financier en limitant les dépendances externes et en garantissant une exécution fiable et efficace.
+
+
+Le site web utilisé : https://coinpaprika.com/coin/ada-cardano/
