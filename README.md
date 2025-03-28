@@ -13,5 +13,10 @@ Le projet repose sur Bash pour le scraping, Python (Dash, Pandas, Plotly) pour l
 Objectif:
 L'objectif est d'automatiser la collecte et l'affichage des prix d'un actif financier en limitant les dépendances externes et en garantissant une exécution fiable et efficace.
 
+L'URL publique de mon dashboard : http://15.237.191.149:8050/
 
 Le site web utilisé : https://coinpaprika.com/coin/ada-cardano/
+
+Utilisation de : AWS EC2 avec une instance Amazon Linux gratuite (t2.micro)
+
+Configuration avec cron pour automatiser le scraping.
