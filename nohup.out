@@ -218,3 +218,43 @@ Dash is running on http://0.0.0.0:8050/
 
  * Serving Flask app 'dashboard'
  * Debug mode: on
+Prix actuel de Cardano (ADA) : 0.7522325648374664 USD
+./scraper.sh: line 14: /mnt/c/Users/mathi/crypto_scraper/crypto_scraper/prices.csv: No such file or directory
+./scraper.sh: line 15: /mnt/c/Users/mathi/crypto_scraper/debug.log: No such file or directory
+./scraper.sh: line 48: /mnt/c/Users/mathi/crypto_scraper/debug.log: No such file or directory
+ Dashboard en cours d'exécution...
+Traceback (most recent call last):
+  File "/home/ec2-user/crypto_scraper/dashboard.py", line 63, in <module>
+    app.run_server(debug=True, host="0.0.0.0", port=8050, threaded=True)
+  File "/home/ec2-user/crypto_scraper/venv/lib64/python3.9/site-packages/dash/_obsolete.py", line 22, in __getattr__
+    raise err.exc(err.message)
+dash.exceptions.ObsoleteAttributeException: app.run_server has been replaced by app.run
+Prix actuel de Cardano (ADA) : 0.7522325648374664 USD
+./scraper.sh: line 48: /mnt/c/Users/mathi/crypto_scraper/debug.log: No such file or directory
+ Dashboard en cours d'exécution...
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: on
+ Dashboard en cours d'exécution...
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: on
+ Dashboard en cours d'exécution...
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: on
+Address already in use
+Port 8050 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ Dashboard en cours d'exécution...
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: on
+ Dashboard en cours d'exécution...
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: on

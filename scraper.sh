@@ -11,10 +11,10 @@ if [[ -n "$PRICE" ]]; then
     echo "Prix actuel de Cardano (ADA) : $PRICE USD"
 
     # Sauvegarde dans CSV avec timestamp
-    echo "$(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> /mnt/c/Users/mathi/crypto_scraper/crypto_scraper/prices.csv
-    echo "Ajouté à prices.csv : $(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> /mnt/c/Users/mathi/crypto_scraper/debug.log
+    echo "$(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> ./prices.csv
+    echo "Ajouté à prices.csv : $(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> debug.log
 else
-    echo "Erreur : Prix non récupéré à $(date)" >> /mnt/c/Users/mathi/crypto_scraper/debug.log
+    echo "Erreur : Prix non récupéré à $(date)" >> ./debug.log
 fi
 #!/bin/bash
 
@@ -39,11 +39,11 @@ if [[ -n "$PRICE" ]]; then
     echo "Prix actuel de Cardano (ADA) : $PRICE USD"
 
     # Sauvegarder dans un fichier CSV avec timestamp
-    echo "$(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> /mnt/c/Users/mathi/crypto_scraper/crypto_scraper/prices.csv
+    echo "$(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> prices.csv
 
     # Debug log pour vérifier l'ajout
-    echo "Ajouté à prices.csv : $(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> /mnt/c/Users/mathi/crypto_scraper/debug.log
+    echo "Ajouté à prices.csv : $(date '+%Y-%m-%d %H:%M:%S'),$PRICE" >> debug.log
 else
     # Enregistrer un message d'erreur si la récupération du prix échoue
-    echo "Erreur : Prix non récupéré à $(date)" >> /mnt/c/Users/mathi/crypto_scraper/debug.log
+    echo "Erreur : Prix non récupéré à $(date)" >> debug.log
 fi
