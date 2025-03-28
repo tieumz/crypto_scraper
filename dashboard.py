@@ -9,6 +9,9 @@ def load_data():
     try:
         df = pd.read_csv("prices.csv", names=["datetime", "price"])
         df["datetime"] = pd.to_datetime(df["datetime"])  # Convertir en format date
+        df = df.dropna()  # Supprimer les lignes avec valeurs manquantes
+        df = df[df["price"] > 0]  # Garder uniquement les prix positifs
+        df = df.sort_values("datetime")  # Trier par date
         print(df.tail())  # DEBUG : Vérifier les 5 dernières valeurs
         return df
     except Exception as e:
