@@ -22,3 +22,5 @@ Le site web utilisé : https://coinpaprika.com/coin/ada-cardano/
 Utilisation de : AWS EC2 avec une instance Amazon Linux gratuite (t2.micro)
 
 Configuration avec cron pour automatiser le scraping.
+
+P.S : Le scraping à 1h de décalage car AWS utilise par défaut l'UTC (et nous CET ou CEST).
