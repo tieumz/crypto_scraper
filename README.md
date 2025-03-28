@@ -1,14 +1,22 @@
 # crypto_scraper
 
-Project Adv. Python, Git, Linux - Mathieu Meunier
+Project Adv. Python, Git, Linux – Mathieu Meunier
+Ce projet a pour objectif la mise en place d’un système automatisé de récupération et de visualisation en temps réel du prix de Cardano (ADA). Il s’appuie sur un script Bash pour le scraping des données, et sur un tableau de bord interactif développé en Python avec Dash pour l’affichage.
 
-Ce projet consiste en la mise en place d'un système automatisé de récupération et d'affichage des prix de Cardano (ADA) en temps réel. Il repose sur un script Bash pour l'extraction des données et un tableau de bord interactif développé avec Dash en Python.
+Fonctionnalités
+Un script Bash interroge l’API de CoinPaprika à intervalles réguliers à l’aide de curl et filtre les données avec grep. Les résultats sont stockés dans un fichier CSV local, mis à jour automatiquement toutes les cinq minutes via cron.
+Le tableau de bord Dash lit ces données et les affiche dynamiquement sous forme de graphique.
 
-Fonctionnalités:
-Le script de scraping, écrit en Bash, récupère les prix depuis le site CoinPaprika en utilisant curl et grep. Les données sont stockées dans un fichier CSV et mises à jour automatiquement toutes les cinq minutes via cron. Un tableau de bord développé avec Dash permet de visualiser l'évolution des prix au fil du temps.
+Technologies utilisées
+Scraping : Bash (curl, grep)
 
-Technologies utilisées:
-Le projet repose sur Bash pour le scraping, Python (Dash, Pandas, Plotly) pour l'affichage des données, GitHub pour le versioning et un environnement Linux (VM) pour assurer une exécution continue.
+  - Visualisation : Python (Dash, Pandas, Plotly)
+
+  - Automatisation : cron
+
+  - Hébergement : AWS EC2 (Amazon Linux 2023 – t2.micro gratuite)
+
+  - Versioning : Git & GitHub
 
 Objectif:
 L'objectif est d'automatiser la collecte et l'affichage des prix d'un actif financier en limitant les dépendances externes et en garantissant une exécution fiable et efficace.
