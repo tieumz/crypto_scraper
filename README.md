@@ -1,6 +1,6 @@
 # crypto_scraper
 
-Project Adv. Python, Git, Linux 
+Project Adv. Python, Git, Linux - Mathieu Meunier
 
 Ce projet consiste en la mise en place d'un système automatisé de récupération et d'affichage des prix de Cardano (ADA) en temps réel. Il repose sur un script Bash pour l'extraction des données et un tableau de bord interactif développé avec Dash en Python.
 
