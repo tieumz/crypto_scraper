@@ -15,6 +15,8 @@ L'objectif est d'automatiser la collecte et l'affichage des prix d'un actif fina
 
 L'URL publique de mon dashboard : http://15.237.191.149:8050/
 
+ATTENTION à l'échelle des prix sur le dashboard, sinon trop petite et le cours de la crypto forme droite horizontale.
+
 Le site web utilisé : https://coinpaprika.com/coin/ada-cardano/
 
 Utilisation de : AWS EC2 avec une instance Amazon Linux gratuite (t2.micro)
