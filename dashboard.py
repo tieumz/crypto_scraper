@@ -18,25 +18,44 @@ def load_data():
         print(f"Erreur lors du chargement des données : {e}")
         return pd.DataFrame(columns=["datetime", "price"])
 
+# Fonction pour le résumé quotidien
+def generate_daily_summary(df):
+    now = pd.Timestamp.now()
+    today = now.date()
+    df_today = df[df["datetime"].dt.date == today]
+
+    if now.hour < 20:
+        return "Le résumé sera disponible à partir de 20h UTC."
+
+    if df_today.empty:
+        return "Aucune donnée disponible pour aujourd’hui."
+
+    open_price = df_today.iloc[0]["price"]
+    close_price = df_today.iloc[-1]["price"]
+    change_pct = ((close_price - open_price) / open_price) * 100
+    volatility = df_today["price"].std()
+
+    summary = f""" Résumé du {today.strftime('%d/%m/%Y')} :
+- Prix d'ouverture : {open_price:.4f} USD
+- Prix de clôture : {close_price:.4f} USD
+- Évolution : {change_pct:.2f} %
+- Volatilité : {volatility:.6f}"""
+
+    return summary
+
 # Initialiser l'application Dash
 app = dash.Dash(__name__)
+app.title = "Cardano Dashboard"
 
+# Layout
 app.layout = html.Div([
     html.H1(id="title", children="Prix de Cardano (ADA) en Temps Réel"),
-    
     dcc.Graph(id="price-chart"),
-    
-    html.Pre(id="daily-summary", style={"white-space": "pre-wrap", "font-size": "16px"}),
-
-    # Ajout d'un intervalle pour rafraîchir les données toutes les 5 minutes
-    dcc.Interval(
-        id="interval-update",
-        interval=5*60*1000,  # Mise à jour toutes les 5 minutes
-        n_intervals=0
-    )
+    html.Pre(id="daily-summary", style={"whiteSpace": "pre-wrap", "fontSize": "16px"}),
+    dcc.Interval(id="interval-update", interval=5*60*1000, n_intervals=0)
 ])
 
-# Callback pour mettre à jour le graphique et le résumé quotidien
+# Callback principal
 @app.callback(
     [dash.Output("price-chart", "figure"),
      dash.Output("title", "children"),
@@ -44,7 +63,7 @@ app.layout = html.Div([
     [dash.Input("interval-update", "n_intervals")]
 )
 def update_dashboard(n):
-    print(f" Callback exécuté, intervalle {n}")  # DEBUG : Voir si le callback est déclenché
+    print(f" Callback exécuté, intervalle {n}")  # DEBUG
     df = load_data()
 
     if df.empty:
@@ -52,12 +71,14 @@ def update_dashboard(n):
 
     fig = px.line(df, x="datetime", y="price", title="Évolution du prix de Cardano (ADA)")
 
-    # Titre dynamique
     last_update = df["datetime"].iloc[-1].strftime("%H:%M")
     title = f"Prix de Cardano (ADA) en Temps Réel (Dernière mise à jour : {last_update})"
 
-    return fig, title, "Mise à jour réussie"
+    summary = generate_daily_summary(df)
+
+    return fig, title, summary
 
 if __name__ == "__main__":
     print(" Dashboard en cours d'exécution...")
     app.run(debug=True, host="0.0.0.0", port=8050, threaded=True)
+
